@@ -3,10 +3,39 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+body.dark-theme header {
+  background-color: #444;
+  border-bottom: 1px solid #555;
+}
+
+.app-icon img {
+  height: 40px;
+}
+
+.theme-toggle {
+  position: relative;
 }
 
 h1 {
-  color: #333;
+  color: inherit;
 }
 
 .container {
@@ -28,10 +57,20 @@ h1 {
   border-right: 1px solid #ddd;
 }
 
+body.dark-theme .column-66 {
+  background-color: #444;
+  border-right: 1px solid #555;
+}
+
 .column-33 {
   flex: 1;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .column-33 {
+  background-color: #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 form {
@@ -45,6 +84,12 @@ textarea {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+body.dark-theme textarea {
+  background-color: #555;
+  color: #f4f4f4;
+  border: 1px solid #666;
 }
 
 .button-group {
@@ -64,6 +109,14 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+body.dark-theme button {
+  background-color: #0056b3;
+}
+
+body.dark-theme button:hover {
+  background-color: #003f7f;
 }
 
 @media (max-width: 768px) {

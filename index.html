@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <header>
+    <div class="app-icon">
+      <img src="resources/app-icon.png" alt="App Icon" />
+    </div>
+    <div class="theme-toggle">
+      <button id="theme-button" onclick="toggleTheme()">🌙</button>
+    </div>
+  </header>
   <div class="container">
     <div class="column column-66">
       <form action="encriptar.php" method="post">
@@ -24,6 +32,7 @@
       </form>
     </div>
   </div>
+  <script src="js/theme.js"></script>
   <script>
     function copiarTexto() {
       const textarea = document.querySelector('.column-33 textarea');
