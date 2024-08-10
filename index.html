@@ -4,8 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Encriptador-Desencriptador de texto</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  
+  <div class="container">
+    <div class="column column-66">
+      <form action="encriptar.php" method="post">
+        <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+        <div class="button-group">
+          <button type="submit">Encriptar</button>
+          <button type="submit" formaction="desencriptar.php">Desencriptar</button>
+        </div>
+      </form>
+    </div>
+    <div class="column column-33">
+      <form>
+        <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+        <button type="button" onclick="copiarTexto()">Copiar</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function copiarTexto() {
+      const textarea = document.querySelector('.column-33 textarea');
+      textarea.select();
+      document.execCommand('copy');
+    }
+  </script>
 </body>
 </html>
