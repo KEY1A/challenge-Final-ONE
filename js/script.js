@@ -66,14 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const desencriptarBtn = document.querySelector('button[formaction="desencriptar"]');
 
   function validarTexto(texto) {
-    const regex = /[^a-z\s]/; // Solo letras minúsculas y espacios permitidos
-    return regex.test(texto);
+    const regex = /[^a-z\s]/g; // Solo letras minúsculas y espacios permitidos
+    return texto.match(regex);
   }
 
   textareaIzquierda.addEventListener('input', () => {
-    const texto = textareaIzquierda.value;
-    if (validarTexto(texto)) {
+    let texto = textareaIzquierda.value;
+    const caracteresNoPermitidos = validarTexto(texto);
+    if (caracteresNoPermitidos) {
       alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
+      texto = texto.replace(/[^a-z\s]/g, ''); // Eliminar caracteres no permitidos
+      textareaIzquierda.value = texto;
     }
 
     if (texto.trim() !== "") {
