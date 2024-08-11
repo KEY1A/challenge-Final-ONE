@@ -70,6 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return texto.match(regex);
   }
 
+  function actualizarEstadoBotones() {
+    encriptarBtn.disabled = textareaIzquierda.value.trim() === "";
+    desencriptarBtn.disabled = textareaIzquierda.value.trim() === "";
+    copiarBtn.disabled = textareaDerecha.value.trim() === "";
+  }
+
   textareaIzquierda.addEventListener('input', () => {
     let texto = textareaIzquierda.value;
     const caracteresNoPermitidos = validarTexto(texto);
@@ -88,7 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
       textareaDerecha.classList.add('hidden');
       copiarBtn.classList.add('hidden');
     }
+
+    actualizarEstadoBotones();
   });
+
+  textareaDerecha.addEventListener('input', actualizarEstadoBotones);
 
   encriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -100,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const textoEncriptado = encriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoEncriptado);
     textareaDerecha.classList.remove('hidden');
+    actualizarEstadoBotones();
   });
 
   desencriptarBtn.addEventListener('click', (event) => {
@@ -112,5 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const textoDesencriptado = desencriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoDesencriptado);
     textareaDerecha.classList.remove('hidden');
+    actualizarEstadoBotones();
   });
+
+  actualizarEstadoBotones(); // Inicializar el estado de los botones
 });
