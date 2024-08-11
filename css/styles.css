@@ -89,6 +89,14 @@ textarea {
   border-radius: 4px;
 }
 
+#texto-izquierda {
+  font-family: 'Arial', sans-serif;
+}
+
+#texto-derecha {
+  font-family: 'Courier Prime', monospace;
+}
+
 body.dark-theme textarea {
   background-color: #555;
   color: #f4f4f4;
