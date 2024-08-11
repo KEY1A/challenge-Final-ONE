@@ -65,27 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const encriptarBtn = document.querySelector('button[type="submit"]');
   const desencriptarBtn = document.querySelector('button[formaction="desencriptar"]');
 
-  function validarTexto(texto) {
-    const regex = /[^a-z\s]/g; // Solo letras minúsculas y espacios permitidos
-    return texto.match(regex);
-  }
-
-  function actualizarEstadoBotones() {
-    encriptarBtn.disabled = textareaIzquierda.value.trim() === "";
-    desencriptarBtn.disabled = textareaIzquierda.value.trim() === "";
-    copiarBtn.disabled = textareaDerecha.value.trim() === "";
-  }
-
   textareaIzquierda.addEventListener('input', () => {
-    let texto = textareaIzquierda.value;
-    const caracteresNoPermitidos = validarTexto(texto);
-    if (caracteresNoPermitidos) {
-      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
-      texto = texto.replace(/[^a-z\s]/g, ''); // Eliminar caracteres no permitidos
-      textareaIzquierda.value = texto;
-    }
-
-    if (texto.trim() !== "") {
+    if (textareaIzquierda.value.trim() !== "") {
       placeholderImage.classList.add('hidden');
       textareaDerecha.classList.remove('hidden');
       copiarBtn.classList.remove('hidden');
@@ -94,37 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
       textareaDerecha.classList.add('hidden');
       copiarBtn.classList.add('hidden');
     }
-
-    actualizarEstadoBotones();
   });
-
-  textareaDerecha.addEventListener('input', actualizarEstadoBotones);
 
   encriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
-    if (validarTexto(texto)) {
-      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
-      return;
-    }
     const textoEncriptado = encriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoEncriptado);
     textareaDerecha.classList.remove('hidden');
-    actualizarEstadoBotones();
   });
 
   desencriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
-    if (validarTexto(texto)) {
-      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
-      return;
-    }
     const textoDesencriptado = desencriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoDesencriptado);
     textareaDerecha.classList.remove('hidden');
-    actualizarEstadoBotones();
   });
-
-  actualizarEstadoBotones(); // Inicializar el estado de los botones
 });
