@@ -14,11 +14,10 @@ body.dark-theme {
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8f9fa;
 }
 
 body.dark-theme header {
@@ -27,11 +26,28 @@ body.dark-theme header {
 }
 
 .app-icon img {
-  height: 40px;
+  width: 80px;
+  height: 80px;
+}
+
+.app-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .theme-toggle {
-  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#theme-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 h1 {
@@ -173,6 +189,19 @@ footer a:hover {
   .column-33 {
     margin-top: 20px;
   }
+
+  .app-title {
+    font-size: 1.2em;
+  }
+
+  .app-icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  #theme-button {
+    font-size: 1.2em;
+  }
 }
 
 @media (max-width: 480px) {
@@ -187,4 +216,14 @@ footer a:hover {
   button {
     padding: 8px;
   }
+
+  .app-title {
+    font-size: 0.9em;
+  }
+
+  .app-icon img {
+    width: 50px;
+    height: 50px;
+  }
+
 }
