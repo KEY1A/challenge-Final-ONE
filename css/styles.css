@@ -122,6 +122,25 @@ body.dark-theme button:hover {
   background-color: #003f7f;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+body.dark-theme footer {
+  background-color: #333;
+  border-top: 1px solid #555;
+}
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
