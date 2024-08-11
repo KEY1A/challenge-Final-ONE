@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       placeholderImage.classList.remove('hidden');
       textareaDerecha.classList.add('hidden');
+      textareaDerecha.value = '';
       copiarBtn.classList.add('hidden');
     }
   });
