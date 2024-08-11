@@ -141,6 +141,16 @@ footer a:hover {
   text-decoration: underline;
 }
 
+#placeholder-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hidden {
+  display: none!important;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

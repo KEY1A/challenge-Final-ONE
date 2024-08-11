@@ -18,7 +18,7 @@
   <div class="container">
     <div class="column column-66">
       <form action="encriptar.php" method="post">
-        <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+        <textarea name="texto" id="texto-izquierda" cols="30" rows="20"></textarea>
         <div class="button-group">
           <button type="submit">Encriptar</button>
           <button type="submit" formaction="desencriptar.php">Desencriptar</button>
@@ -26,9 +26,10 @@
       </form>
     </div>
     <div class="column column-33">
+      <img id="placeholder-image" src="resources/imagen-web.jpg" alt="Placeholder Image" />
       <form>
-        <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
-        <button type="button" onclick="copiarTexto()">Copiar</button>
+        <textarea name="texto" id="texto-derecha" cols="30" rows="20" class="hidden"></textarea>
+        <button type="button" id="copiar-btn" class="hidden" onclick="copiarTexto()">Copiar</button>
       </form>
     </div>
   </div>
@@ -37,12 +38,6 @@
     <p>Licencia: <a href="LICENSE">GNU General Public License v3.0</a></p>
   </footer>
   <script src="js/theme.js"></script>
-  <script>
-    function copiarTexto() {
-      const textarea = document.querySelector('.column-33 textarea');
-      textarea.select();
-      document.execCommand('copy');
-    }
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
