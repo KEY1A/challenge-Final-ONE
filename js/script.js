@@ -65,8 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const encriptarBtn = document.querySelector('button[type="submit"]');
   const desencriptarBtn = document.querySelector('button[formaction="desencriptar"]');
 
+  function validarTexto(texto) {
+    const regex = /[^a-z\s]/; // Solo letras minúsculas y espacios permitidos
+    return regex.test(texto);
+  }
+
   textareaIzquierda.addEventListener('input', () => {
-    if (textareaIzquierda.value.trim() !== "") {
+    const texto = textareaIzquierda.value;
+    if (validarTexto(texto)) {
+      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
+    }
+
+    if (texto.trim() !== "") {
       placeholderImage.classList.add('hidden');
       textareaDerecha.classList.remove('hidden');
       copiarBtn.classList.remove('hidden');
@@ -80,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
   encriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
+    if (validarTexto(texto)) {
+      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
+      return;
+    }
     const textoEncriptado = encriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoEncriptado);
     textareaDerecha.classList.remove('hidden');
@@ -88,6 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
   desencriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
+    if (validarTexto(texto)) {
+      alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
+      return;
+    }
     const textoDesencriptado = desencriptarTexto(texto);
     escribirTextoLentamente(textareaDerecha, textoDesencriptado);
     textareaDerecha.classList.remove('hidden');
