@@ -40,6 +40,23 @@ function copiarTexto() {
   }
 }
 
+function escribirTextoLentamente(textarea, texto, intervalo = 40) {
+  let indice = 0;
+  textarea.value = '';
+  const audio = document.getElementById('background-sound');
+  audio.play();
+  
+  const intervalId = setInterval(() => {
+    textarea.value += texto[indice];
+    indice++;
+    if (indice >= texto.length) {
+      clearInterval(intervalId);
+      audio.pause();
+      audio.currentTime = 0; // Reiniciar el audio
+    }
+  }, intervalo);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const textareaIzquierda = document.getElementById('texto-izquierda');
   const placeholderImage = document.getElementById('placeholder-image');
@@ -64,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
     const textoEncriptado = encriptarTexto(texto);
-    textareaDerecha.value = textoEncriptado;
+    escribirTextoLentamente(textareaDerecha, textoEncriptado);
     textareaDerecha.classList.remove('hidden');
   });
 
@@ -72,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const texto = textareaIzquierda.value;
     const textoDesencriptado = desencriptarTexto(texto);
-    textareaDerecha.value = textoDesencriptado;
+    escribirTextoLentamente(textareaDerecha, textoDesencriptado);
     textareaDerecha.classList.remove('hidden');
   });
 });
