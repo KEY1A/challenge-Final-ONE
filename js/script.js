@@ -92,7 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   encriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const texto = textareaIzquierda.value;
+    const texto = textareaIzquierda.value.trim();
+    if (texto === "") {
+      alert('Por favor, ingrese texto para encriptar.');
+      return;
+    }
     if (validarTexto(texto)) {
       alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
       return;
@@ -104,7 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   desencriptarBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const texto = textareaIzquierda.value;
+    const texto = textareaIzquierda.value.trim();
+    if (texto === "") {
+      alert('Por favor, ingrese texto para desencriptar.');
+      return;
+    }
     if (validarTexto(texto)) {
       alert('El texto contiene mayúsculas, acentos o caracteres no permitidos.');
       return;
