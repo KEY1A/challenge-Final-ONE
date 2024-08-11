@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador-Desencriptador de texto</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Arial&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador-Desencriptador de texto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
   <header>
     <div class="app-icon">
@@ -18,11 +17,11 @@
   </header>
   <div class="container">
     <div class="column column-66">
-      <form>
+      <form action="encriptar.php" method="post">
         <textarea name="texto" id="texto-izquierda" cols="30" rows="20"></textarea>
         <div class="button-group">
-          <button type="button" id="encriptar-btn">Encriptar</button>
-          <button type="button" id="desencriptar-btn">Desencriptar</button>
+          <button type="submit">Encriptar</button>
+          <button type="submit" formaction="desencriptar">Desencriptar</button>
         </div>
       </form>
     </div>
