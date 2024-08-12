@@ -17,8 +17,8 @@ document.getElementById('theme-button').addEventListener('mouseover', () => {
   const body = document.body;
   const themeButton = document.getElementById('theme-button');
   if (body.classList.contains('dark-theme')) {
-    themeButton.title = 'Claro';
+    themeButton.title = 'Modo Claro';
   } else {
-    themeButton.title = 'Oscuro';
+    themeButton.title = 'Modo Oscuro';
   }
 });

@@ -1,27 +1,31 @@
+// Reglas de encriptación y desencriptación
+const reglasEncriptacion = {
+  'e': 'enter',
+  'i': 'imes',
+  'a': 'ai',
+  'o': 'ober',
+  'u': 'ufat'
+};
+
+const reglasDesencriptacion = {
+  'enter': 'e',
+  'imes': 'i',
+  'ai': 'a',
+  'ober': 'o',
+  'ufat': 'u'
+};
+
+// Función para encriptar texto
 function encriptarTexto(texto) {
-  const reglas = {
-    'e': 'enter',
-    'i': 'imes',
-    'a': 'ai',
-    'o': 'ober',
-    'u': 'ufat'
-  };
-
-  return texto.replace(/[eioua]/g, (letra) => reglas[letra]);
+  return texto.replace(/[eioua]/g, letra => reglasEncriptacion[letra]);
 }
 
+// Función para desencriptar texto
 function desencriptarTexto(texto) {
-  const reglas = {
-    'enter': 'e',
-    'imes': 'i',
-    'ai': 'a',
-    'ober': 'o',
-    'ufat': 'u'
-  };
-
-  return texto.replace(/enter|imes|ai|ober|ufat/g, (palabra) => reglas[palabra]);
+  return texto.replace(/enter|imes|ai|ober|ufat/g, palabra => reglasDesencriptacion[palabra]);
 }
 
+// Función para copiar texto al portapapeles
 function copiarTexto() {
   const textarea = document.getElementById('texto-derecha');
   const copiarBtn = document.getElementById('copiar-btn');
@@ -31,15 +35,12 @@ function copiarTexto() {
   } else {
     textarea.select();
     navigator.clipboard.writeText(textarea.value)
-      .then(() => {
-        console.log('Texto copiado al portapapeles');
-      })
-      .catch(err => {
-        console.error('Error al copiar el texto: ', err);
-      });
+      .then(() => console.log('Texto copiado al portapapeles'))
+      .catch(err => console.error('Error al copiar el texto: ', err));
   }
 }
 
+// Función para escribir texto lentamente y con efecto de sonido
 function escribirTextoLentamente(textarea, texto, intervalo = 40) {
   let indice = 0;
   textarea.value = '';
@@ -47,8 +48,7 @@ function escribirTextoLentamente(textarea, texto, intervalo = 40) {
   audio.play();
   
   const intervalId = setInterval(() => {
-    textarea.value += texto[indice];
-    indice++;
+    textarea.value += texto[indice++];
     if (indice >= texto.length) {
       clearInterval(intervalId);
       audio.pause();
@@ -57,6 +57,13 @@ function escribirTextoLentamente(textarea, texto, intervalo = 40) {
   }, intervalo);
 }
 
+// Función para validar texto
+function validarTexto(texto) {
+  const regex = /[^a-z\s]/g; // Solo letras minúsculas y espacios permitidos
+  return texto.match(regex);
+}
+
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   const textareaIzquierda = document.getElementById('texto-izquierda');
   const placeholderImage = document.getElementById('placeholder-image');
@@ -64,11 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const copiarBtn = document.getElementById('copiar-btn');
   const encriptarBtn = document.querySelector('button[type="submit"]');
   const desencriptarBtn = document.querySelector('button[formaction="desencriptar"]');
-
-  function validarTexto(texto) {
-    const regex = /[^a-z\s]/g; // Solo letras minúsculas y espacios permitidos
-    return texto.match(regex);
-  }
 
   textareaIzquierda.addEventListener('input', () => {
     let texto = textareaIzquierda.value;
