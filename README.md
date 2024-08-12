@@ -70,8 +70,7 @@ El archivo `js/theme.js` contiene la funcionalidad para cambiar el tema de la ap
 
 ## Licencia
 
-Este proyecto está bajo la Licencia GNU General Public License v3.0 - mira el archivo [LICENSE]
-
+Este proyecto está bajo la [Licencia GNU General Public License v3.0](https://github.com/KEY1A/challenge-Final-ONE/blob/main/LICENSE)
 ## Autor 
 
 Keyla Valdes Hernandez
