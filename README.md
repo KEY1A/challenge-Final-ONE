@@ -45,12 +45,12 @@ LICENSE
 
 1. Clona el repositorio:
    ```
-   git clone https://github.com/tu-usuario/encriptador-desencriptador.git
+   git clone https://github.com/KEY1A/challenge-Final-ONE.git
     ```
 
 2. Navega a la carpeta del proyecto:
    ```
-   cd encriptador-desencriptador
+   cd challenge-Final-ONE
    ```
 ## Uso
 
