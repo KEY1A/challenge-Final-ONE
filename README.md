@@ -60,6 +60,10 @@ LICENSE
 4. El resultado se mostrará en el area de la derecha de la pantalla.
 5. Si deseas copiar el texto encriptado/desencriptado, haz clic en el botón "Copiar".
 
+## Publicacion en Github Pages
+
+El proyecto esta disponible en Github Pages, lo pueden ver en este enlace, [Encriptador/Desencriptador](https://key1a.github.io/challenge-Final-ONE/)
+
 ## Personalización
 
 Si deseas personalizar el estilo de la aplicación, puedes modificar el archivo `css/styles.css`. Aquí encontrarás las clases y estilos utilizados en la página.
